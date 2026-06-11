@@ -131,7 +131,16 @@
     </Link>
   </ItemDefinitionGroup>
 
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="JsonParser.cpp" />
+    <ClCompile Include="JsonSerializer.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="JsonValue.h" />
+    <ClInclude Include="JsonParser.h" />
+    <ClInclude Include="JsonSerializer.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
