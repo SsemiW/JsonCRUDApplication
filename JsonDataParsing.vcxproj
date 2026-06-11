@@ -134,12 +134,14 @@
   <ItemGroup>
     <ClCompile Include="JsonParser.cpp" />
     <ClCompile Include="JsonSerializer.cpp" />
+    <ClCompile Include="Member.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JsonValue.h" />
     <ClInclude Include="JsonParser.h" />
     <ClInclude Include="JsonSerializer.h" />
+    <ClInclude Include="Member.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
