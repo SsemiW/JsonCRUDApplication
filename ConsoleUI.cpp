@@ -2,18 +2,9 @@
 #include <iostream>
 #include <limits>
 #include <stdexcept>
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 static const std::string LINE(40, '-');
 
-ConsoleUI::ConsoleUI(MemberService& service) : service_(service) {
-#ifdef _WIN32
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
-#endif
-}
+ConsoleUI::ConsoleUI(MemberService& service) : service_(service) {}
 
 void ConsoleUI::run() {
     while (true) {
