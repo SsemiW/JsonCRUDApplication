@@ -15,48 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JsonParser.cpp">
+    <ClCompile Include="src\json\JsonParser.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="JsonSerializer.cpp">
+    <ClCompile Include="src\json\JsonSerializer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Member.cpp">
+    <ClCompile Include="src\model\Member.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="MemberRepository.cpp">
+    <ClCompile Include="src\repository\MemberRepository.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="MemberService.cpp">
+    <ClCompile Include="src\service\MemberService.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleUI.cpp">
+    <ClCompile Include="src\ui\ConsoleUI.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="JsonValue.h">
+    <ClInclude Include="src\json\JsonValue.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="JsonParser.h">
+    <ClInclude Include="src\json\JsonParser.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="JsonSerializer.h">
+    <ClInclude Include="src\json\JsonSerializer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Member.h">
+    <ClInclude Include="src\model\Member.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MemberRepository.h">
+    <ClInclude Include="src\repository\MemberRepository.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MemberService.h">
+    <ClInclude Include="src\service\MemberService.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI.h">
+    <ClInclude Include="src\ui\ConsoleUI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

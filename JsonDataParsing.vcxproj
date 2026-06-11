@@ -82,6 +82,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\json;$(ProjectDir)src\model;$(ProjectDir)src\repository;$(ProjectDir)src\service;$(ProjectDir)src\ui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -98,6 +99,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\json;$(ProjectDir)src\model;$(ProjectDir)src\repository;$(ProjectDir)src\service;$(ProjectDir)src\ui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -112,6 +114,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\json;$(ProjectDir)src\model;$(ProjectDir)src\repository;$(ProjectDir)src\service;$(ProjectDir)src\ui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +131,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\json;$(ProjectDir)src\model;$(ProjectDir)src\repository;$(ProjectDir)src\service;$(ProjectDir)src\ui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,22 +140,22 @@
   </ItemDefinitionGroup>
 
   <ItemGroup>
-    <ClCompile Include="JsonParser.cpp" />
-    <ClCompile Include="JsonSerializer.cpp" />
-    <ClCompile Include="Member.cpp" />
-    <ClCompile Include="MemberRepository.cpp" />
-    <ClCompile Include="MemberService.cpp" />
-    <ClCompile Include="ConsoleUI.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\json\JsonParser.cpp" />
+    <ClCompile Include="src\json\JsonSerializer.cpp" />
+    <ClCompile Include="src\model\Member.cpp" />
+    <ClCompile Include="src\repository\MemberRepository.cpp" />
+    <ClCompile Include="src\service\MemberService.cpp" />
+    <ClCompile Include="src\ui\ConsoleUI.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="JsonValue.h" />
-    <ClInclude Include="JsonParser.h" />
-    <ClInclude Include="JsonSerializer.h" />
-    <ClInclude Include="Member.h" />
-    <ClInclude Include="MemberRepository.h" />
-    <ClInclude Include="MemberService.h" />
-    <ClInclude Include="ConsoleUI.h" />
+    <ClInclude Include="src\json\JsonValue.h" />
+    <ClInclude Include="src\json\JsonParser.h" />
+    <ClInclude Include="src\json\JsonSerializer.h" />
+    <ClInclude Include="src\model\Member.h" />
+    <ClInclude Include="src\repository\MemberRepository.h" />
+    <ClInclude Include="src\service\MemberService.h" />
+    <ClInclude Include="src\ui\ConsoleUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
