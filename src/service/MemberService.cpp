@@ -36,7 +36,13 @@ Member MemberService::update(int64_t id,
         m.email = value;
     } else if (field == "age") {
         int64_t age;
-        try { age = std::stoll(value); }
+        try {
+            std::size_t pos;
+            age = std::stoll(value, &pos);
+            if (pos != value.size())
+                throw std::runtime_error("나이는 숫자로 입력해주세요.");
+        }
+        catch (const std::runtime_error&) { throw; }
         catch (...) { throw std::runtime_error("나이는 숫자로 입력해주세요."); }
         validateAge(age);
         m.age = age;

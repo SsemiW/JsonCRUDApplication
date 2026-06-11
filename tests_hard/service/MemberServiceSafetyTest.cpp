@@ -126,8 +126,8 @@ TEST_F(MemberSvcSafetyTest, AgeBoundaryAllowed) {
 // ── 6-4. Update 극단값 ──────────────────────────────────────────────────
 
 TEST_F(MemberSvcSafetyTest, UpdateAgeFractionalStringThrows) {
-    // 구현 갭: stoll("1.5")→1 로 파싱 성공, 예외 없이 age=1 로 저장됨
-    GTEST_SKIP() << "Implementation gap: stoll(\"1.5\") returns 1, fractional strings not rejected";
+    auto m = svc_->create("A", "a@b.com", 20);
+    EXPECT_THROW(svc_->update(m.id, "age", "1.5"), std::runtime_error);
 }
 
 TEST_F(MemberSvcSafetyTest, UpdateAgeOverflowStringThrows) {
@@ -141,9 +141,9 @@ TEST_F(MemberSvcSafetyTest, UpdateAgeEmptyStringThrows) {
 }
 
 TEST_F(MemberSvcSafetyTest, UpdateAgeSpacedOutOfRangeThrows) {
-    // stoll("  151  ")→151, validateAge(151) 가 std::invalid_argument 발생
+    // pos != size() 로 먼저 걸림 → runtime_error
     auto m = svc_->create("A", "a@b.com", 20);
-    EXPECT_THROW(svc_->update(m.id, "age", "  151  "), std::invalid_argument);
+    EXPECT_THROW(svc_->update(m.id, "age", "  151  "), std::runtime_error);
 }
 
 TEST_F(MemberSvcSafetyTest, UpdateUnknownFieldThrows) {
