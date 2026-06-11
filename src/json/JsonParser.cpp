@@ -23,6 +23,11 @@ JsonValue JsonParser::parseFile(const std::filesystem::path& filePath) {
 }
 
 JsonValue JsonParser::parseValue() {
+    if (depth_ >= 512)
+        throw std::runtime_error("JSON 중첩 깊이 초과 (최대 512)");
+    struct DepthGuard { int& d; ~DepthGuard() { --d; } } guard{ depth_ };
+    ++depth_;
+
     skipWhitespace();
     if (isEnd())
         throw std::runtime_error("JSON 파싱 오류: 입력이 예상보다 일찍 끝났습니다.");

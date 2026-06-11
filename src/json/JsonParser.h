@@ -9,7 +9,7 @@ public:
     static JsonValue parseFile(const std::filesystem::path& filePath);
 
 private:
-    explicit JsonParser(const std::string& input) : input_(input), pos_(0) {}
+    explicit JsonParser(const std::string& input) : input_(input), pos_(0), depth_(0) {}
 
     JsonValue parseValue();
     JsonValue parseNull();
@@ -27,4 +27,5 @@ private:
 
     const std::string& input_;
     size_t pos_;
+    int    depth_;
 };

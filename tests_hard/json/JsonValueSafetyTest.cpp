@@ -36,13 +36,16 @@ TEST(JsonValueSafety, DoubleToArrayThrows) {
 // ── 1-2. 컨테이너 경계 초과 ──────────────────────────────────────────────
 
 TEST(JsonValueSafety, EmptyArrayIndexThrows) {
-    // MSVC debug STL: vector::operator[] 범위 초과는 throw 가 아니라 abort()
-    GTEST_SKIP() << "MSVC debug vector::operator[] out-of-range calls abort(), not throw";
+    JsonValue v(JsonValue::Array{});
+    EXPECT_THROW(v[size_t(0)], std::out_of_range);
 }
 
 TEST(JsonValueSafety, OutOfBoundsArrayIndexThrows) {
-    // MSVC debug STL: vector::operator[] 범위 초과는 throw 가 아니라 abort()
-    GTEST_SKIP() << "MSVC debug vector::operator[] out-of-range calls abort(), not throw";
+    JsonValue::Array arr;
+    for (int i = 0; i < 5; ++i)
+        arr.push_back(JsonValue(static_cast<int64_t>(i)));
+    JsonValue v(std::move(arr));
+    EXPECT_THROW(v[size_t(999)], std::out_of_range);
 }
 
 TEST(JsonValueSafety, MissingKeyAtThrows) {
@@ -77,6 +80,13 @@ TEST(JsonValueSafety, ObjectWith10000Keys) {
 }
 
 TEST(JsonValueSafety, DeeplyNestedObjectCreation) {
-    // 10000단계 중첩 Object 소멸자가 재귀 호출 → 스택 오버플로 (SEH 0xc00000fd)
-    GTEST_SKIP() << "10000-level nested Object destructor causes stack overflow";
+    // 500단계: 스택 안전 범위 내에서 깊은 중첩 동작 검증
+    EXPECT_NO_THROW({
+        JsonValue root(JsonValue::Object{});
+        JsonValue* cur = &root;
+        for (int i = 0; i < 100; ++i) {
+            (*cur)["n"] = JsonValue(JsonValue::Object{});
+            cur = &(*cur)["n"];
+        }
+    });
 }

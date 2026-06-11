@@ -149,8 +149,9 @@ TEST(JsonParserSafety, EmptyKeyAllowed) {
 }
 
 TEST(JsonParserSafety, DeeplyNestedArrayNocrash) {
-    // 재귀 파서: 1000단계 중첩 배열 파싱 시 스택 오버플로 발생
-    GTEST_SKIP() << "Recursive parser stack overflows at 1000-level nested array";
+    // 깊이 제한(512) 초과 → runtime_error (스택 오버플로 방지)
+    std::string json = std::string(1000, '[') + std::string(1000, ']');
+    EXPECT_THROW(JsonParser::parse(json), std::runtime_error);
 }
 
 TEST(JsonParserSafety, DuplicateKeyLastValueWins) {

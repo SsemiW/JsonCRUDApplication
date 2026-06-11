@@ -66,8 +66,8 @@ public:
     const Object& asObject() const { return std::get<Object>(data_); }
 
     // 배열 인덱스 접근
-    JsonValue&       operator[](size_t idx)       { return std::get<Array>(data_)[idx]; }
-    const JsonValue& operator[](size_t idx) const { return std::get<Array>(data_)[idx]; }
+    JsonValue&       operator[](size_t idx)       { return std::get<Array>(data_).at(idx); }
+    const JsonValue& operator[](size_t idx) const { return std::get<Array>(data_).at(idx); }
 
     // 객체 키 접근 (없으면 삽입)
     JsonValue& operator[](const std::string& key) { return std::get<Object>(data_)[key]; }
