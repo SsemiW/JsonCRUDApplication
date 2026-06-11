@@ -137,6 +137,7 @@
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="MemberRepository.cpp" />
     <ClCompile Include="MemberService.cpp" />
+    <ClCompile Include="ConsoleUI.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <ClInclude Include="Member.h" />
     <ClInclude Include="MemberRepository.h" />
     <ClInclude Include="MemberService.h" />
+    <ClInclude Include="ConsoleUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
